@@ -4,6 +4,7 @@ namespace Tests\HelloWorld\Statics;
 
 
 use PHPUnit\Framework\TestCase;
+use Tests\Utility\TestUtility;
 use HelloWorld\Contracts\Statics\Routes as RoutesContract;
 use HelloWorld\Statics\Routes;
 
@@ -14,20 +15,9 @@ class RoutesTest extends TestCase {
         $this->assertEquals(true, $routes instanceof RoutesContract);
     }
 
-    private function graphMatching($a, $b) {
-        if(is_array($a) && is_array($b)) {
-            foreach($a as $k => $v) {
-                if(isset($b[$k])) {
-                    return $this->graphMatching($v, $b[$k]);
-                } else {
-                    return false;
-                }
-            }
-        }
-        return ($a === $b);
-    }
-
     public function testGet() {
+        $testUtility = new TestUtility();
+
         $routes = new Routes(__DIR__ . "/routes");
         
         $expectedRoutes = [
@@ -63,6 +53,6 @@ class RoutesTest extends TestCase {
             ]
         ];
 
-        $this->assertTrue($this->graphMatching($routes->get(), $expectedRoutes));
+        $this->assertTrue($testUtility->graphMatching($routes->get(), $expectedRoutes));
     }
 }
