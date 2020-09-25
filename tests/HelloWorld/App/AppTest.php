@@ -3,7 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use HelloWorld\App\App;
 use HelloWorld\Contracts\App\App as AppContract;
-use HelloWorld\Contracts\Http\Outgoing\Response;
+use HelloWorld\Contracts\App\Outgoing\Response;
 
 
 class AppTest extends TestCase {

@@ -4,7 +4,7 @@ namespace HelloWorld\App;
 
 
 use HelloWorld\Contracts\App\App as AppContract;
-use HelloWorld\Http\Outgoing\Text;
+use HelloWorld\App\Outgoing\Text;
 
 
 class App implements AppContract {

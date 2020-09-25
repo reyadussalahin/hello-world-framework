@@ -1,6 +1,6 @@
 <?php
 
-namespace HelloWorld\Contracts\Http\Outgoing;
+namespace HelloWorld\Contracts\App\Outgoing;
 
 
 interface Response {

@@ -1,9 +1,9 @@
 <?php
 
-namespace HelloWorld\Http\Outgoing;
+namespace HelloWorld\App\Outgoing;
 
 
-use HelloWorld\Contracts\Http\Outgoing\Response;
+use HelloWorld\Contracts\App\Outgoing\Response;
 
 
 class Text implements Response {
