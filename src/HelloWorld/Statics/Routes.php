@@ -4,23 +4,18 @@ namespace HelloWorld\Statics;
 
 
 use HelloWorld\Contracts\Statics\Routes as RoutesContract;
-
+use HelloWorld\Common\Routes\Routes as RoutesCommon;
 
 class Routes implements RoutesContract {
     private $routesBase;
     private $routes;
+    private $routesCommon;
 
-    private function filterUri($uri) {
-        $uri = trim($uri);
-        $len = strlen($uri);
-        if($len > 0 && $uri[$len-1] === "/") {
-            $uri = substr($uri, 0, $len-1);
-            $len--;
+    private function routesCommon() {
+        if($this->routesCommon === null) {
+            $this->routesCommon = new RoutesCommon();
         }
-        if($len > 0 && $uri[0] === "/") {
-            $uri = substr($uri, 1);
-        }
-        return $uri;
+        return $this->routesCommon;
     }
 
     public function __construct($routesBase) {
@@ -42,7 +37,7 @@ class Routes implements RoutesContract {
                     $this->routes[$method] = [];
                 }
                 foreach($list as $uri => $details) {
-                    $uri = $prefix . $this->filterUri($uri);
+                    $uri = $prefix . $this->routesCommon()->filterUri($uri);
                     $this->routes[$method][$uri] = $details;
                 }
             }
