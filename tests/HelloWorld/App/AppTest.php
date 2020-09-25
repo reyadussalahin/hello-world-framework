@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests\HelloWorld\App;
+
+
 use PHPUnit\Framework\TestCase;
 use HelloWorld\App\App;
 use HelloWorld\Contracts\App\App as AppContract;

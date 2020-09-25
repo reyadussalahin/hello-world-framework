@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests\HelloWorld\Statics;
+
+
 use PHPUnit\Framework\TestCase;
 use HelloWorld\Contracts\Statics\Routes as RoutesContract;
 use HelloWorld\Statics\Routes;
