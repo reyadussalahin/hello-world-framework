@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests\HelloWorld\App;
+
+
 use PHPUnit\Framework\TestCase;
 use HelloWorld\Contracts\App\Globals as GlobalsContract;
 use HelloWorld\App\Globals;
