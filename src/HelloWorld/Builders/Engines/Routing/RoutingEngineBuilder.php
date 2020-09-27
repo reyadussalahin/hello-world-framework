@@ -20,19 +20,23 @@ class RoutingEngineBuilder implements BuilderContract {
     private function getRoutes() {
         if($this->routes === null) {
             $routesManager = new RoutesManager(
-                $this->app->base() . "/routes"
+                $this->app
             );
             $this->routes = $routesManager->get();
         }
         return $this->routes;
     }
 
-    public function get() {
+    private function getEngine() {
         if($this->engine === null) {
             $this->engine = new RoutingEngine(
                 $this->getRoutes()
             );
         }
         return $this->engine;
+    }
+
+    public function get() {
+        return $this->getEngine();
     }
 }

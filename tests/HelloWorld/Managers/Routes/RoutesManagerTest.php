@@ -11,14 +11,18 @@ use HelloWorld\Managers\Routes\RoutesManager;
 
 class RoutesManagerTest extends TestCase {
     public function testContract() {
-        $routes = new RoutesManager(__DIR__ . "/routes");
-        $this->assertEquals(true, $routes instanceof RoutesManagerContract);
+        $routesManager = new RoutesManager(null);
+        $this->assertEquals(true, $routesManager instanceof RoutesManagerContract);
     }
 
     public function testGet() {
         $commonTestUtilities = new CommonTestUtilities();
+        $routesManager = new RoutesManager(null);
 
-        $routes = new RoutesManager(__DIR__ . "/routes");
+        $reflectionClass = new \ReflectionClass(RoutesManager::class);
+        $reflectionProperty = $reflectionClass->getProperty("routesBase");
+        $reflectionProperty->setAccessible(true);
+        $reflectionProperty->setValue($routesManager, __DIR__ . "/routes");
         
         $expectedRoutes = [
             "GET" => [
@@ -53,6 +57,6 @@ class RoutesManagerTest extends TestCase {
             ]
         ];
 
-        $this->assertTrue($commonTestUtilities->graphMatching($routes->get(), $expectedRoutes));
+        $this->assertTrue($commonTestUtilities->graphMatching($routesManager->get(), $expectedRoutes));
     }
 }
