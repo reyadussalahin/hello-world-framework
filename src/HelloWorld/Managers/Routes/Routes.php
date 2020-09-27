@@ -1,10 +1,11 @@
 <?php
 
-namespace HelloWorld\Statics;
+namespace HelloWorld\Managers\Routes;
 
 
-use HelloWorld\Contracts\Statics\Routes as RoutesContract;
-use HelloWorld\Common\Routes\Routes as RoutesCommon;
+use HelloWorld\Contracts\Managers\Routes\Routes as RoutesContract;
+use HelloWorld\Commons\Routes\Routes as RoutesCommon;
+
 
 class Routes implements RoutesContract {
     private $routesBase;

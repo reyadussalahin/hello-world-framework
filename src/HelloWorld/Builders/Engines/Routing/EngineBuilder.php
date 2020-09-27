@@ -4,7 +4,7 @@ namespace HelloWorld\Builders\Engines\Routing;
 
 
 use HelloWorld\Contracts\Builders\Builder as BuilderContract;
-use HelloWorld\Statics\Routes;
+use HelloWorld\Managers\Routes\Routes;
 use HelloWorld\Engines\Routing\Engine as RoutingEngine;
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace HelloWorld\Contracts\Common\Routes;
+namespace HelloWorld\Contracts\Commons\Routes;
 
 
 interface Routes {

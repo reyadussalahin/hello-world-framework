@@ -1,9 +1,9 @@
 <?php
 
-namespace HelloWorld\Common\Routes;
+namespace HelloWorld\Commons\Routes;
 
 
-use HelloWorld\Contracts\Common\Routes\Routes as RoutesCommonContract;
+use HelloWorld\Contracts\Commons\Routes\Routes as RoutesCommonContract;
 
 
 class Routes implements RoutesCommonContract {

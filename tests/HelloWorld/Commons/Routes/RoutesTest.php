@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\HelloWorld\Common\Routes;
+namespace Tests\HelloWorld\Commons\Routes;
 
 
 use PHPUnit\Framework\TestCase;
-use HelloWorld\Common\Routes\Routes as RoutesCommon;
+use HelloWorld\Commons\Routes\Routes as RoutesCommon;
 
 
 class RoutesTest extends TestCase {

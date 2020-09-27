@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\HelloWorld\Statics;
+namespace Tests\HelloWorld\Managers\Routes;
 
 
 use PHPUnit\Framework\TestCase;
 use Tests\Utility\TestUtility;
-use HelloWorld\Contracts\Statics\Routes as RoutesContract;
-use HelloWorld\Statics\Routes;
+use HelloWorld\Contracts\Managers\Routes\Routes as RoutesContract;
+use HelloWorld\Managers\Routes\Routes;
 
 
 class RoutesTest extends TestCase {
