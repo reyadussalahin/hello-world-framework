@@ -4,10 +4,10 @@ namespace Tests\HelloWorld\Commons\Routes;
 
 
 use PHPUnit\Framework\TestCase;
-use HelloWorld\Commons\Routes\Routes as RoutesCommon;
+use HelloWorld\Commons\Routes\RoutesCommon;
 
 
-class RoutesTest extends TestCase {
+class RoutesCommonTest extends TestCase {
     public function testContract() {
         $routesCommon = new RoutesCommon();
         $this->assertTrue($routesCommon instanceof RoutesCommon);

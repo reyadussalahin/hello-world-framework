@@ -3,11 +3,11 @@
 namespace HelloWorld\Managers\Routes;
 
 
-use HelloWorld\Contracts\Managers\Routes\Routes as RoutesContract;
-use HelloWorld\Commons\Routes\Routes as RoutesCommon;
+use HelloWorld\Contracts\Managers\Routes\RoutesManager as RoutesManagerContract;
+use HelloWorld\Commons\Routes\RoutesCommon;
 
 
-class Routes implements RoutesContract {
+class RoutesManager implements RoutesManagerContract {
     private $routesBase;
     private $routes;
     private $routesCommon;

@@ -3,6 +3,6 @@
 namespace HelloWorld\Contracts\Engines\Routing;
 
 
-interface Engine {
+interface RoutingEngine {
     public function resolve($method, $uri);
 }

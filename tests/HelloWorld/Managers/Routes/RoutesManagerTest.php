@@ -4,19 +4,19 @@ namespace Tests\HelloWorld\Managers\Routes;
 
 
 use PHPUnit\Framework\TestCase;
-use Tests\Utility\TestUtility;
-use HelloWorld\Contracts\Managers\Routes\Routes as RoutesContract;
-use HelloWorld\Managers\Routes\Routes as RoutesManager;
+use Tests\Utilities\CommonTestUtilities;
+use HelloWorld\Contracts\Managers\Routes\RoutesManager as RoutesManagerContract;
+use HelloWorld\Managers\Routes\RoutesManager;
 
 
-class RoutesTest extends TestCase {
+class RoutesManagerTest extends TestCase {
     public function testContract() {
         $routes = new RoutesManager(__DIR__ . "/routes");
-        $this->assertEquals(true, $routes instanceof RoutesContract);
+        $this->assertEquals(true, $routes instanceof RoutesManagerContract);
     }
 
     public function testGet() {
-        $testUtility = new TestUtility();
+        $commonTestUtilities = new CommonTestUtilities();
 
         $routes = new RoutesManager(__DIR__ . "/routes");
         
@@ -53,6 +53,6 @@ class RoutesTest extends TestCase {
             ]
         ];
 
-        $this->assertTrue($testUtility->graphMatching($routes->get(), $expectedRoutes));
+        $this->assertTrue($commonTestUtilities->graphMatching($routes->get(), $expectedRoutes));
     }
 }

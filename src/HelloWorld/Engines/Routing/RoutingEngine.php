@@ -3,11 +3,11 @@
 namespace HelloWorld\Engines\Routing;
 
 
-use HelloWorld\Contracts\Engines\Routing\Engine as RoutingEngineContract;
-use HelloWorld\Commons\Routes\Routes as RoutesCommon;
+use HelloWorld\Contracts\Engines\Routing\RoutingEngine as RoutingEngineContract;
+use HelloWorld\Commons\Routes\RoutesCommon;
 
 
-class Engine implements RoutingEngineContract {
+class RoutingEngine implements RoutingEngineContract {
     private $routes;
     private $routesCommon;
 

@@ -4,19 +4,19 @@ namespace Tests\HelloWorld\Routing;
 
 
 use PHPUnit\Framework\TestCase;
-use Tests\Utility\TestUtility;
-use HelloWorld\Contracts\Engines\Routing\Engine as RoutingEngineContract;
-use HelloWorld\Engines\Routing\Engine as RoutingEngine;
+use Tests\Utilities\CommonTestUtilities;
+use HelloWorld\Contracts\Engines\Routing\RoutingEngine as RoutingEngineContract;
+use HelloWorld\Engines\Routing\RoutingEngine;
 
 
-class EngineTest extends TestCase {
+class RoutingEngineTest extends TestCase {
     public function testContract() {
         $routingEngine = new RoutingEngine(null);
         $this->assertTrue($routingEngine instanceof RoutingEngineContract);
     }
 
     public function testResolve() {
-        $testUtility = new TestUtility();
+        $commonTestUtilities = new CommonTestUtilities();
 
         $routes = [
             "GET" => [
@@ -49,12 +49,12 @@ class EngineTest extends TestCase {
             "params" => ["1234"]
         ];
         $this->assertTrue(
-            $testUtility->graphMatching(
+            $commonTestUtilities->graphMatching(
                 $expected, $routingEngine->resolve("GET", $uri)
             )
         );
         $this->assertFalse(
-            $testUtility->graphMatching(
+            $commonTestUtilities->graphMatching(
                 $expected, $routingEngine->resolve("POST", $uri)
             )
         );
@@ -65,19 +65,19 @@ class EngineTest extends TestCase {
             "params" => []
         ];
         $this->assertTrue(
-            $testUtility->graphMatching(
+            $commonTestUtilities->graphMatching(
                 $expected, $routingEngine->resolve("POST", $uri)
             )
         );
         $this->assertFalse(
-            $testUtility->graphMatching(
+            $commonTestUtilities->graphMatching(
                 $expected, $routingEngine->resolve("GET", $uri)
             )
         );
 
         $uri = "out-of-the-world-uri";
         $this->assertTrue(
-            $testUtility->graphMatching(
+            $commonTestUtilities->graphMatching(
                 null, $routingEngine->resolve("POST", $uri)
             )
         );

@@ -3,6 +3,6 @@
 namespace HelloWorld\Contracts\Commons\Routes;
 
 
-interface Routes {
+interface RoutesCommon {
     public function filterUri($uri);
 }

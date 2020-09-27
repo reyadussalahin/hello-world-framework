@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Utility;
+namespace Tests\Utilities;
 
 
-class TestUtility {
+class CommonTestUtilities {
     public function graphMatching($a, $b) {
         if(is_array($a) && is_array($b)) {
             foreach($a as $k => $v) {

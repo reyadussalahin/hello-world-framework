@@ -3,10 +3,10 @@
 namespace HelloWorld\Commons\Routes;
 
 
-use HelloWorld\Contracts\Commons\Routes\Routes as RoutesCommonContract;
+use HelloWorld\Contracts\Commons\Routes\RoutesCommon as RoutesCommonContract;
 
 
-class Routes implements RoutesCommonContract {
+class RoutesCommon implements RoutesCommonContract {
     public function filterUri($uri) {
         $uri = trim($uri);
         $len = strlen($uri);

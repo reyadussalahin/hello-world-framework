@@ -4,20 +4,20 @@ namespace Tests\HelloWorld\Builders\Engines\Routing;
 
 
 use PHPUnit\Framework\TestCase;
-use Tests\Utility\TestUtility;
+use Tests\Utilities\CommonTestUtilities;
 use HelloWorld\Contracts\Builders\Builder as BuilderContract;
-use HelloWorld\Builders\Engines\Routing\Builder as RoutingEngineBuilder;
-use HelloWorld\Engines\Routing\Engine as RoutingEngine;
+use HelloWorld\Builders\Engines\Routing\RoutingEngineBuilder;
+use HelloWorld\Engines\Routing\RoutingEngine;
 
 
-class EngineBuilderTest extends TestCase {
+class RoutingEngineBuilderTest extends TestCase {
     public function testContract() {
         $builder = new RoutingEngineBuilder(null);
         $this->assertTrue($builder instanceof BuilderContract);
     }
 
     public function testGet() {
-        $testUtility = new TestUtility();
+        $commonTestUtilities = new CommonTestUtilities();
         $builder = new RoutingEngineBuilder(null);
 
         $routes = [
@@ -57,7 +57,7 @@ class EngineBuilderTest extends TestCase {
             "params" => ["1234"]
         ];
         $this->assertTrue(
-            $testUtility->graphMatching(
+            $commonTestUtilities->graphMatching(
                 $expected, $engine->resolve("GET", $uri)
             )
         );

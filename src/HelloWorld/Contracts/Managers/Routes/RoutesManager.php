@@ -3,6 +3,6 @@
 namespace HelloWorld\Contracts\Managers\Routes;
 
 
-interface Routes {
+interface RoutesManager {
     public function get();
 }
