@@ -27,39 +27,39 @@ class Globals implements GlobalsContract {
         return $this->globals;
     }
 
-    public function globals() {
+    public function &globals() {
         return $this->globals["globals"];
     }
 
-    public function server() {
+    public function &server() {
         return $this->globals["server"];
     }
 
-    public function get() {
+    public function &get() {
         return $this->globals["get"];
     }
 
-    public function post() {
+    public function &post() {
         return $this->globals["post"];
     }
 
-    public function files() {
+    public function &files() {
         return $this->globals["files"];
     }
     
-    public function cookie() {
+    public function &cookie() {
         return $this->globals["cookie"];
     }
 
-    public function session() {
+    public function &session() {
         return $this->globals["session"];
     }
 
-    public function request() {
+    public function &request() {
         return $this->globals["request"];
     }
 
-    public function env() {
+    public function &env() {
         return $this->globals["env"];
     }
 }

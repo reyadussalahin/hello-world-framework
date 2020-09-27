@@ -52,6 +52,9 @@ class GlobalTest extends TestCase {
         $this->assertEquals("server", $globals->server());
         $_SERVER = "changed";
         $this->assertEquals("changed", $globals->server());
+        $server = &$globals->server();
+        $server = "server";
+        $this->assertEquals("server", $globals->server());
     }
     public function testGet() {
         global $_GET;

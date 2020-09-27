@@ -7,9 +7,11 @@ use HelloWorld\Contracts\App\Outgoing\Response;
 
 
 class Text implements Response {
+    private $app;
     private $content;
 
-    public function __construct($content) {
+    public function __construct($app, $content) {
+        $this->app = $app;
         $this->content = $content;
     }
 
