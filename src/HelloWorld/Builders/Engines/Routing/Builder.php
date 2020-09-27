@@ -8,7 +8,7 @@ use HelloWorld\Managers\Routes\Routes;
 use HelloWorld\Engines\Routing\Engine as RoutingEngine;
 
 
-class EngineBuilder implements BuilderContract {
+class Builder implements BuilderContract {
     private $app;
     private $routes;
     private $engine;

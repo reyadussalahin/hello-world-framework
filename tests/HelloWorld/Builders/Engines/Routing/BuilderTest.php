@@ -6,19 +6,19 @@ namespace Tests\HelloWorld\Builders\Engines\Routing;
 use PHPUnit\Framework\TestCase;
 use Tests\Utility\TestUtility;
 use HelloWorld\Contracts\Builders\Builder as BuilderContract;
-use HelloWorld\Builders\Engines\Routing\EngineBuilder as RoutingEngineBuilder;
+use HelloWorld\Builders\Engines\Routing\Builder as RoutingEngineBuilder;
 use HelloWorld\Engines\Routing\Engine as RoutingEngine;
 
 
 class EngineBuilderTest extends TestCase {
     public function testContract() {
-        $engineBuilder = new RoutingEngineBuilder(null);
-        $this->assertTrue($engineBuilder instanceof BuilderContract);
+        $builder = new RoutingEngineBuilder(null);
+        $this->assertTrue($builder instanceof BuilderContract);
     }
 
     public function testGet() {
         $testUtility = new TestUtility();
-        $engineBuilder = new RoutingEngineBuilder(null);
+        $builder = new RoutingEngineBuilder(null);
 
         $routes = [
             "GET" => [
@@ -46,9 +46,9 @@ class EngineBuilderTest extends TestCase {
         $reflectionClass = new \ReflectionClass(RoutingEngineBuilder::class);
         $reflectionProperty = $reflectionClass->getProperty("routes");
         $reflectionProperty->setAccessible(true);
-        $reflectionProperty->setValue($engineBuilder, $routes);
+        $reflectionProperty->setValue($builder, $routes);
         
-        $engine = $engineBuilder->get();
+        $engine = $builder->get();
         $this->assertTrue($engine instanceof RoutingEngine);
         
         $uri = "/api/users/1234";
