@@ -46,7 +46,7 @@ class EngineTest extends TestCase {
         $uri = "/api/users/1234";
         $expected = [
             "controller" => ["api.users", "show"],
-            "params" => [1234]
+            "params" => ["1234"]
         ];
         $this->assertTrue(
             $testUtility->graphMatching(
