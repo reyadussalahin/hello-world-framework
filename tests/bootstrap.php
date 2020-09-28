@@ -2,8 +2,6 @@
 
 require __DIR__ . "/../vendor/autoload.php";
 
-
-
 // no need to declare super globals here
 // see \Tests\HelloWorld\App\GlobalsTest.php for details
 

@@ -4,9 +4,9 @@ namespace HelloWorld\App;
 
 
 use HelloWorld\Contracts\App\App as AppContract;
+use HelloWorld\Managers\Builders\Engines\EnginesManager;
 use HelloWorld\App\Incoming\Request;
 use HelloWorld\App\Outgoing\Text;
-use HelloWorld\Managers\Builders\Engines\EnginesManager;
 
 
 class App implements AppContract {
@@ -31,7 +31,7 @@ class App implements AppContract {
 
     private function getEnginesManager() {
         if($this->enginesManager === null) {
-            $this->enginesManager = new EnginesManager($app);
+            $this->enginesManager = new EnginesManager($this);
         }
         return $this->enginesManager;
     }
@@ -56,6 +56,17 @@ class App implements AppContract {
     }
 
     public function process() {
-        return $this->text("blah blah");
+        $target = $this->routing()->resolve(
+            $this->request()->method(),
+            $this->request()->uri()
+        );
+
+        $controller = new $target["controller"][0](
+            $this
+        );
+
+        return $controller->{$target["controller"][1]}(
+            ...$target["params"]
+        );
     }
 }
