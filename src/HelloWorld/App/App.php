@@ -61,6 +61,16 @@ class App implements AppContract {
             $this->request()->uri()
         );
 
+        if($target === null) {
+            // note: we haven't yet started using named route
+            //       so, pls bear with it
+            //       or send a custom view
+            //       for 404, by editing here
+            // another note: we'll soon provide a way for you
+            //               where you can use your custom 404 page
+            return $this->text("Page not found(error: 404).");
+        }
+
         $controller = new $target["controller"][0](
             $this
         );

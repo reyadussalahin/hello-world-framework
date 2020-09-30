@@ -76,8 +76,8 @@ class RoutingEngine implements RoutingEngineContract {
                     return false;
                 }
             } else {
-                if(isset($tok["pattern"])) {
-                    $pat = "/^" . $tok["pattern"] . "$/";
+                if(isset($tok["pat"])) {
+                    $pat = "/^" . $tok["pat"] . "$/";
                     if(!preg_match($pat, $reqUri[$i])) {
                         return false;
                     }

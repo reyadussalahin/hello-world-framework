@@ -28,7 +28,11 @@ class RoutingEngineTest extends TestCase {
                     "name" => "users.show",
                     "target" => ["api.users", "show"],
                     "filter" => [
-                        "id" => "[A-Za-z0-9_-]+"
+                        // "id" => "[A-Za-z0-9_-]+"
+
+                        // allow only digits and
+                        // there should be atleast one digit
+                        "id" => "[0-9]+"
                     ]
                 ]
             ],
@@ -58,6 +62,17 @@ class RoutingEngineTest extends TestCase {
                 $expected, $routingEngine->resolve("POST", $uri)
             )
         );
+        
+        $uri = "/api/users/2wab";
+        // note: for this uri routing engine would return null
+        //       cause, id filter can passes numbers, cannot pass any
+        //       other chars
+        $this->assertTrue(
+            $commonTestUtilities->graphMatching(
+                null, $routingEngine->resolve("POST", $uri)
+            )
+        );
+        
 
         $uri = "/users/ create/";
         $expected = [
